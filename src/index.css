@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+html, body, #root {
+  background-color: #09090b;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.light-theme, html.light-theme body, html.light-theme #root {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html.amoled-theme, html.amoled-theme body, html.amoled-theme #root {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Smooth transition across all components during appearance change */
+header, nav, main,
+[class*="bg-"], [class*="border-"] {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Exclude pure transform animations, media and range sliders from color transitions */
+.animate-spin-slow, .animate-slide-up, .animate-scale-up, input[type="range"], audio, video {
+  transition-property: transform, opacity;
+}
+
+/* Allow text selection only in intentional input fields */
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  font-size: 16px; /* Prevents auto-zoom on mobile Chrome / iOS Safari */
+}
+
+/* Prevent double-tap zoom and accidental text selection on interactive elements */
+button, a, [role="button"], img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 12s linear infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-scale-up {
+    animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hide scrollbars for visual elegance */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

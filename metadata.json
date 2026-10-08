@@ -1,0 +1,6 @@
+{
+  "name": "Sur - Offline Music Player",
+  "description": "Fast, beautiful, and offline-first music player that scans and plays your audio files with local lyrics, equalizer, and sleep timer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
