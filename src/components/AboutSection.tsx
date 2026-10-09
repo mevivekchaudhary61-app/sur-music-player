@@ -62,7 +62,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     const body = encodeURIComponent(
       `${feedbackText.trim()}\n\n---\nApp Version: v1.3.0\nPlatform: ${navigator.userAgent}\nTimestamp: ${new Date().toISOString()}`
     );
-    window.location.href = `mailto:mevivekchaudhary61@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@surmusic.com?subject=${subject}&body=${body}`;
 
     setFeedbackSent(true);
     setTimeout(() => {
@@ -207,7 +207,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
           <div className="py-2 flex items-center justify-between">
             <span className={`${isLight ? 'text-zinc-600' : 'text-zinc-400'} font-medium`}>Developer</span>
-            <span className={`font-semibold ${isLight ? 'text-zinc-900' : 'text-white'}`}>Vivek Chaudhary</span>
+            <span className={`font-semibold ${isLight ? 'text-zinc-900' : 'text-white'}`}>Vivek</span>
+          </div>
+
+          <div className="py-2 flex items-center justify-between">
+            <span className={`${isLight ? 'text-zinc-600' : 'text-zinc-400'} font-medium`}>Feedback & Support</span>
+            <span className={`font-mono text-[11px] font-semibold ${actStyle.text}`}>support.surmusic.com</span>
           </div>
 
           <div className="py-2 flex items-center justify-between">
@@ -417,12 +422,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   <Check className="w-6 h-6" />
                 </div>
                 <h4 className={`text-sm font-bold ${isLight ? 'text-zinc-900' : 'text-white'}`}>Thank You!</h4>
-                <p className={`text-xs ${isLight ? 'text-zinc-500' : 'text-zinc-400'}`}>Opening your email client to send diagnostics to developer.</p>
+                <p className={`text-xs ${isLight ? 'text-zinc-500' : 'text-zinc-400'}`}>Sending feedback diagnostics to support.surmusic.com.</p>
               </div>
             ) : (
               <form onSubmit={handleSendFeedback} className="space-y-3">
                 <p className={`text-[11px] ${isLight ? 'text-zinc-600' : 'text-zinc-400'} leading-relaxed`}>
-                  Have an idea, found a bug, or facing an issue? Send a direct message to Vivek Chaudhary:
+                  Have an idea, found a bug, or facing an issue? Send a direct message to Vivek:
                 </p>
 
                 <textarea
@@ -435,7 +440,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 />
 
                 <div className={`flex items-center justify-between text-[10px] ${isLight ? 'text-zinc-500' : 'text-zinc-500'} font-mono`}>
-                  <span>To: mevivekchaudhary61@gmail.com</span>
+                  <span>To: support.surmusic.com</span>
                   <span>Version: v1.3.0</span>
                 </div>
 
